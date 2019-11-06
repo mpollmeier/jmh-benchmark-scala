@@ -1,3 +1,3 @@
-name := "collection-converters-benchmark"
+name := "benchmark"
 
 enablePlugins(JmhPlugin)
