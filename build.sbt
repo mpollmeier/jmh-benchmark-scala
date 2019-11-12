@@ -1,3 +1,3 @@
-name := "benchmark"
+name := "jmh-benchmarks"
 
-enablePlugins(JmhPlugin)
+enablePlugins(JmhPlugin, JavaAppPackaging)
