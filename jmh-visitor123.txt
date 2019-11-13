@@ -1,0 +1,11 @@
+locally jdk8:
+[info] Benchmark                 Mode  Cnt       Score       Error  Units
+[info] VisitorVsMatch.visitor1  thrpt   10  460777.779 ± 14281.522  ops/s
+[info] VisitorVsMatch.visitor2  thrpt   10  358152.085 ±  8020.671  ops/s
+[info] VisitorVsMatch.visitor3  thrpt   10  148966.064 ±  3457.847  ops/s
+
+locally jdk11: no change really
+[info] Benchmark                 Mode  Cnt       Score      Error  Units
+[info] VisitorVsMatch.visitor1  thrpt   10  463405.320 ± 7715.064  ops/s
+[info] VisitorVsMatch.visitor2  thrpt   10  300749.479 ± 2862.563  ops/s
+[info] VisitorVsMatch.visitor3  thrpt   10  140893.179 ± 2288.583  ops/s
