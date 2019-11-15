@@ -10,15 +10,15 @@ import org.openjdk.jmh.annotations._
 // class VisitorVsMatch {
 //   val Iterations = 1000
 
-//   // @Benchmark
-//   // @BenchmarkMode(Array(Mode.Throughput))
-//   // @Fork(value = 1)
-//   // def matcher2: Unit = {
-//   //   val iter = infiniteNodeIterator(2)
-//   //   1.to(Iterations).foreach(_ =>
-//   //     Matcher2.foo(iter.next)
-//   //   )
-//   // }
+  // @Benchmark
+  // @BenchmarkMode(Array(Mode.Throughput))
+  // @Fork(value = 1)
+  // def matcher2: Unit = {
+  //   val iter = infiniteNodeIterator(2)
+  //   1.to(Iterations).foreach(_ =>
+  //     Matcher2.foo(iter.next)
+  //   )
+  // }
 
 //   @Benchmark
 //   @BenchmarkMode(Array(Mode.Throughput))
