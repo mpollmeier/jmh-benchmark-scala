@@ -15,6 +15,11 @@ object Visitor2a extends NodeVisitor[String] {
   final override def visit(n: N10): String = n.foo10
   final override def visit(n: N11): String = n.foo11
 }
+// object Visitor3 extends NodeVisitor[String] {
+//   final override def visit(n: N1): String = n.foo1
+//   final override def visit(n: N2): String = n.foo2
+//   final override def visit(n: N3): String = n.foo3
+// }
 object Visitor3 extends NodeVisitor[String] {
   final override def visit(n: N4): String = n.foo4
   final override def visit(n: N5): String = n.foo5
