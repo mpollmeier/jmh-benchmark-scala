@@ -1,9 +1,10 @@
 package jmhtest.visitor
 
 import org.openjdk.jmh.annotations._
-import scala.annotation.switch
 
-object VisitorVsMatchswitch {
+object BenchmarkAll {
+  val Iterations = 1000
+
   val iter2 = infiniteNodeIterator(new N1, new N2)
   val iter3 = infiniteNodeIterator(new N4, new N5, new N6)
   val iter5 = infiniteNodeIterator(new N1, new N2, new N3, new N4, new N5)
@@ -22,53 +23,15 @@ object VisitorVsMatchswitch {
       node
     }
   }
-
-  object MatcherSwitch2 {
-    def foo(node: Node): String = (node.tpe: @switch) match {
-      case 1 => node.asInstanceOf[N1].foo1
-      case 2 => node.asInstanceOf[N2].foo2
-    }
-  }
-  object MatcherSwitch3 {
-    def foo(node: Node): String = (node.tpe: @switch) match {
-      case 4 => node.asInstanceOf[N4].foo4
-      case 5 => node.asInstanceOf[N5].foo5
-      case 6 => node.asInstanceOf[N6].foo6
-    }
-  }
-  object MatcherSwitch5 {
-    def foo(node: Node): String = (node.tpe: @switch) match {
-      case 1 => node.asInstanceOf[N1].foo1
-      case 2 => node.asInstanceOf[N2].foo2
-      case 3 => node.asInstanceOf[N3].foo3
-      case 4 => node.asInstanceOf[N4].foo4
-      case 5 => node.asInstanceOf[N5].foo5
-    }
-  }
-  object MatcherSwitch10 {
-    def foo(node: Node): String = (node.tpe: @switch) match {
-      case 1 => node.asInstanceOf[N1].foo1
-      case 2 => node.asInstanceOf[N2].foo2
-      case 3 => node.asInstanceOf[N3].foo3
-      case 4 => node.asInstanceOf[N4].foo4
-      case 5 => node.asInstanceOf[N5].foo5
-      case 6 => node.asInstanceOf[N6].foo6
-      case 7 => node.asInstanceOf[N7].foo7
-      case 8 => node.asInstanceOf[N8].foo8
-      case 9 => node.asInstanceOf[N9].foo9
-      case 10 => node.asInstanceOf[N10].foo10
-    }
-  }
 }
 
-// @Warmup(iterations = 2)
-// @Measurement(iterations = 10)
-@Warmup(iterations = 20)
-@Measurement(iterations = 100)
+@Warmup(iterations = 2)
+@Measurement(iterations = 10)
+// @Warmup(iterations = 20)
+// @Measurement(iterations = 100)
 @State(Scope.Benchmark)
-class VisitorVsMatchswitch {
-  import VisitorVsMatchswitch._
-  val Iterations = 1000
+class BenchmarkAll {
+  import BenchmarkAll._
 
   // @Fork(value = 1)
   // @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintCompilation", "-XX:+PrintInlining", "-XX:CompileThreshold=1000"))
@@ -85,7 +48,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor02Graal: Unit = {
@@ -107,7 +70,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor03Graal: Unit = {
@@ -118,7 +81,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor05: Unit = {
@@ -129,7 +92,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor05Graal: Unit = {
@@ -140,7 +103,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor10: Unit = {
@@ -151,7 +114,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor10Graal: Unit = {
@@ -162,7 +125,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch02: Unit = {
@@ -173,7 +136,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch02Graal: Unit = {
@@ -184,7 +147,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch03: Unit = {
@@ -195,7 +158,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch03Graal: Unit = {
@@ -206,7 +169,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch05: Unit = {
@@ -217,7 +180,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch05Graal: Unit = {
@@ -228,7 +191,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch10: Unit = {
@@ -239,7 +202,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch10Graal: Unit = {
@@ -250,7 +213,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher02: Unit = {
@@ -261,7 +224,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher02Graal: Unit = {
@@ -272,7 +235,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher03: Unit = {
@@ -283,7 +246,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher03Graal: Unit = {
@@ -294,7 +257,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher05: Unit = {
@@ -305,7 +268,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher05Graal: Unit = {
@@ -316,7 +279,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher10: Unit = {
@@ -327,7 +290,7 @@ class VisitorVsMatchswitch {
     }
   }
 
-  @Benchmark
+  // @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher10Graal: Unit = {
