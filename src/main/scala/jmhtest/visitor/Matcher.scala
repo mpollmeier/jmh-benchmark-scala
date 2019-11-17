@@ -2,61 +2,61 @@ package jmhtest.visitor
 
 object Matcher2 {
   def foo(node: Node): String = node match {
-    case node: N1 => node.foo1
-    case node: N2 => node.foo2
+    case node: N1 => "N1Foo"
+    case node: N2 => "N2Foo"
   }
 }
 object Matcher3 {
   def foo(node: Node): String = node match {
-    case node: N4 => node.foo4
-    case node: N5 => node.foo5
-    case node: N6 => node.foo6
+    case node: N4 => "N4Foo"
+    case node: N5 => "N5Foo"
+    case node: N6 => "N6Foo"
   }
 }
 object Matcher5 {
   def foo(node: Node): String = node match {
-    case node: N1 => node.foo1
-    case node: N2 => node.foo2
-    case node: N3 => node.foo3
-    case node: N4 => node.foo4
-    case node: N5 => node.foo5
+    case node: N1 => "N1Foo"
+    case node: N2 => "N2Foo"
+    case node: N3 => "N3Foo"
+    case node: N4 => "N4Foo"
+    case node: N5 => "N5Foo"
   }
 }
 object Matcher10 {
   def foo(node: Node): String = node match {
-    case node: N1 => node.foo1
-    case node: N2 => node.foo2
-    case node: N3 => node.foo3
-    case node: N4 => node.foo4
-    case node: N5 => node.foo5
-    case node: N6 => node.foo6
-    case node: N7 => node.foo7
-    case node: N8 => node.foo8
-    case node: N9 => node.foo9
-    case node: N10 => node.foo10
+    case node: N1 => "N1Foo"
+    case node: N2 => "N2Foo"
+    case node: N3 => "N3Foo"
+    case node: N4 => "N4Foo"
+    case node: N5 => "N5Foo"
+    case node: N6 => "N6Foo"
+    case node: N7 => "N7Foo"
+    case node: N8 => "N8Foo"
+    case node: N9 => "N9Foo"
+    case node: N10 => "N10Foo"
   }
 }
 object Matcher20 {
   def foo(node: Node): String = node match {
-    case node: N1 => node.foo1
-    case node: N2 => node.foo2
-    case node: N3 => node.foo3
-    case node: N4 => node.foo4
-    case node: N5 => node.foo5
-    case node: N6 => node.foo6
-    case node: N7 => node.foo7
-    case node: N8 => node.foo8
-    case node: N9 => node.foo9
-    case node: N10 => node.foo10
-    case node: N11 => node.foo11
-    case node: N12 => node.foo12
-    case node: N13 => node.foo13
-    case node: N14 => node.foo14
-    case node: N15 => node.foo15
-    case node: N16 => node.foo16
-    case node: N17 => node.foo17
-    case node: N18 => node.foo18
-    case node: N19 => node.foo19
-    case node: N20 => node.foo20
+    case node: N1 => "N1Foo"
+    case node: N2 => "N2Foo"
+    case node: N3 => "N3Foo"
+    case node: N4 => "N4Foo"
+    case node: N5 => "N5Foo"
+    case node: N6 => "N6Foo"
+    case node: N7 => "N7Foo"
+    case node: N8 => "N8Foo"
+    case node: N9 => "N9Foo"
+    case node: N10 => "N10Foo"
+    case node: N11 => "N11Foo"
+    case node: N12 => "N12Foo"
+    case node: N13 => "N13Foo"
+    case node: N14 => "N14Foo"
+    case node: N15 => "N15Foo"
+    case node: N16 => "N16Foo"
+    case node: N17 => "N17Foo"
+    case node: N18 => "N18Foo"
+    case node: N19 => "N19Foo"
+    case node: N20 => "N20Foo"
   }
 }
