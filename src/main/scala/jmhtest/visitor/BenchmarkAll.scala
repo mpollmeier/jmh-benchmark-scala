@@ -10,7 +10,7 @@ object BenchmarkAll {
   val iter5 = infiniteNodeIterator(new N1, new N2, new N3, new N4, new N5)
   val iter10 = infiniteNodeIterator(new N1, new N2, new N3, new N4, new N5, new N6, new N7, new N8, new N9, new N10)
 
-  def infiniteNodeIterator(nodes: Node*) = new java.util.Iterator[Node] {
+  def infiniteNodeIterator(nodes: Node*) = new _root_.java.util.Iterator[Node] {
     val nodesArr: Array[Node] = nodes.toArray
     val nodeCount = nodesArr.size
 

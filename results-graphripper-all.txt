@@ -1,0 +1,26 @@
+[info] Benchmark                                   Mode  Cnt       Score      Error  Units
+[info] VisitorVsMatchswitch.matcher02             thrpt  100  313378.774 ±   26.295  ops/s
+[info] VisitorVsMatchswitch.matcher03             thrpt  100  371192.817 ±  107.154  ops/s
+[info] VisitorVsMatchswitch.matcher05             thrpt  100  289780.681 ±  145.788  ops/s
+[info] VisitorVsMatchswitch.matcher10             thrpt  100  205716.302 ±   13.879  ops/s
+[info] VisitorVsMatchswitch.matcher02Graal        thrpt  100  422007.574 ±  302.742  ops/s
+[info] VisitorVsMatchswitch.matcher03Graal        thrpt  100  318542.107 ±   46.948  ops/s
+[info] VisitorVsMatchswitch.matcher05Graal        thrpt  100  370832.703 ± 1611.768  ops/s
+[info] VisitorVsMatchswitch.matcher10Graal        thrpt  100  314281.074 ±   26.047  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch02       thrpt  100  270893.471 ±   47.351  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch03       thrpt  100  104909.243 ±  233.801  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch05       thrpt  100   96749.294 ± 1484.428  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch10       thrpt  100   99383.508 ±    8.433  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch02Graal  thrpt  100  247839.671 ±   17.753  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch03Graal  thrpt  100  213497.561 ±  565.267  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch05Graal  thrpt  100  215182.877 ±  768.612  ops/s
+[info] VisitorVsMatchswitch.matcherSwitch10Graal  thrpt  100  105167.688 ±   57.714  ops/s
+[info] VisitorVsMatchswitch.visitor02             thrpt  100  396879.136 ±   23.334  ops/s
+[info] VisitorVsMatchswitch.visitor03             thrpt  100  102571.969 ±  315.514  ops/s
+[info] VisitorVsMatchswitch.visitor05             thrpt  100  106637.697 ±    3.673  ops/s
+[info] VisitorVsMatchswitch.visitor10             thrpt  100  108587.561 ±    6.459  ops/s
+[info] VisitorVsMatchswitch.visitor02Graal        thrpt  100  308917.478 ± 1258.660  ops/s
+[info] VisitorVsMatchswitch.visitor03Graal        thrpt  100  308108.943 ±   27.172  ops/s
+[info] VisitorVsMatchswitch.visitor05Graal        thrpt  100  323891.994 ±  594.081  ops/s
+[info] VisitorVsMatchswitch.visitor10Graal        thrpt  100  116526.105 ±   23.290  ops/s
+[success] Total time: 28821 s (08:00:21), completed Nov 15, 2019, 10:34:37 AM
