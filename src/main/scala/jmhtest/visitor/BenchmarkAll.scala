@@ -35,12 +35,24 @@ class BenchmarkAll {
 
   // @Fork(value = 1)
   // @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintCompilation", "-XX:+PrintInlining", "-XX:CompileThreshold=1000"))
+  // @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintCompilation", "-XX:+PrintInlining", "-XX:CompileThreshold=1000", "-XX:-UseBimorphicInlining"))
   // @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintCompilation", "-XX:+PrintInlining", "-XX:CompileThreshold=1000", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
 
   @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor02: Unit = {
+    var i = 0
+    while (i < Iterations) {
+      i += 1
+      iter2.next.accept(Visitor2)
+    }
+  }
+
+  @Benchmark
+  @BenchmarkMode(Array(Mode.Throughput))
+  @Fork(value = 1, jvmArgsAppend = Array("-XX:-UseBimorphicInlining"))
+  def visitor02NoBimorphicInlining: Unit = {
     var i = 0
     while (i < Iterations) {
       i += 1
@@ -63,6 +75,17 @@ class BenchmarkAll {
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor03: Unit = {
+    var i = 0
+    while (i < Iterations) {
+      i += 1
+      iter3.next.accept(Visitor3)
+    }
+  }
+
+  @Benchmark
+  @BenchmarkMode(Array(Mode.Throughput))
+  @Fork(value = 1, jvmArgsAppend = Array("-XX:-UseBimorphicInlining"))
+  def visitor03NoBimorphicInlining: Unit = {
     var i = 0
     while (i < Iterations) {
       i += 1
