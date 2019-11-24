@@ -8,9 +8,9 @@ object Matcher2 {
 }
 object Matcher3 {
   def foo(node: Node): String = node match {
-    case node: N4 => "N4Foo"
-    case node: N5 => "N5Foo"
-    case node: N6 => "N6Foo"
+    case node: N1 => "N1Foo"
+    case node: N2 => "N2Foo"
+    case node: N3 => "N3Foo"
   }
 }
 object Matcher5 {

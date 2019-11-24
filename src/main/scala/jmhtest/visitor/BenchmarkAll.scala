@@ -4,7 +4,7 @@ import org.openjdk.jmh.annotations._
 
 object BenchmarkAll {
   val iter2 = infiniteNodeIterator(new N1, new N2)
-  val iter3 = infiniteNodeIterator(new N4, new N5, new N6)
+  val iter3 = infiniteNodeIterator(new N1, new N2, new N3)
   val iter5 = infiniteNodeIterator(new N1, new N2, new N3, new N4, new N5)
   val iter10 = infiniteNodeIterator(new N1, new N2, new N3, new N4, new N5, new N6, new N7, new N8, new N9, new N10)
 
@@ -23,10 +23,10 @@ object BenchmarkAll {
   }
 }
 
-@Warmup(iterations = 2)
-@Measurement(iterations = 10)
-// @Warmup(iterations = 20)
-// @Measurement(iterations = 100)
+// @Warmup(iterations = 2)
+// @Measurement(iterations = 10)
+@Warmup(iterations = 20)
+@Measurement(iterations = 100)
 @State(Scope.Benchmark)
 class BenchmarkAll {
   import BenchmarkAll._

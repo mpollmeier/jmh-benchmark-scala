@@ -10,9 +10,9 @@ object MatcherSwitch2 {
 }
 object MatcherSwitch3 {
   def foo(node: Node): String = (node.tpe: @switch) match {
-    case 4 => "N4Foo"
-    case 5 => "N5Foo"
-    case 6 => "N6Foo"
+    case 1 => "N1Foo"
+    case 2 => "N2Foo"
+    case 3 => "N3Foo"
   }
 }
 object MatcherSwitch5 {

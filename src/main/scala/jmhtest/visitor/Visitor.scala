@@ -9,21 +9,10 @@ object Visitor2 extends NodeVisitor[String] {
   final override def visit(n: N1): String = "N1Foo"
   final override def visit(n: N2): String = "N2Foo"
 }
-object Visitor2a extends NodeVisitor[String] {
+object Visitor3 extends NodeVisitor[String] {
   final override def visit(n: N1): String = "N1Foo"
   final override def visit(n: N2): String = "N2Foo"
-  final override def visit(n: N10): String = "N10Foo"
-  final override def visit(n: N11): String = "N11Foo"
-}
-// object Visitor3 extends NodeVisitor[String] {
-//   final override def visit(n: N1): String = "N1Foo"
-//   final override def visit(n: N2): String = "N2Foo"
-//   final override def visit(n: N3): String = "N3Foo"
-// }
-object Visitor3 extends NodeVisitor[String] {
-  final override def visit(n: N4): String = "N4Foo"
-  final override def visit(n: N5): String = "N5Foo"
-  final override def visit(n: N6): String = "N6Foo"
+  final override def visit(n: N3): String = "N3Foo"
 }
 object Visitor5 extends NodeVisitor[String] {
   final override def visit(n: N1): String = "N1Foo"
