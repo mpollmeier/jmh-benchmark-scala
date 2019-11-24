@@ -3,8 +3,6 @@ package jmhtest.visitor
 import org.openjdk.jmh.annotations._
 
 object BenchmarkAll {
-  val Iterations = 1000
-
   val iter2 = infiniteNodeIterator(new N1, new N2)
   val iter3 = infiniteNodeIterator(new N4, new N5, new N6)
   val iter5 = infiniteNodeIterator(new N1, new N2, new N3, new N4, new N5)
@@ -42,286 +40,182 @@ class BenchmarkAll {
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor02: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter2.next.accept(Visitor2)
-    }
+    iter2.next.accept(Visitor2)
   }
 
   @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:-UseBimorphicInlining"))
   def visitor02NoBimorphicInlining: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter2.next.accept(Visitor2)
-    }
+    iter2.next.accept(Visitor2)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor02Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter2.next.accept(Visitor2)
-    }
+    iter2.next.accept(Visitor2)
   }
 
   @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor03: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter3.next.accept(Visitor3)
-    }
+    iter3.next.accept(Visitor3)
   }
 
   @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:-UseBimorphicInlining"))
   def visitor03NoBimorphicInlining: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter3.next.accept(Visitor3)
-    }
+    iter3.next.accept(Visitor3)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor03Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter3.next.accept(Visitor3)
-    }
+    iter3.next.accept(Visitor3)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor05: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter5.next.accept(Visitor5)
-    }
+    iter5.next.accept(Visitor5)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor05Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter5.next.accept(Visitor5)
-    }
+    iter5.next.accept(Visitor5)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def visitor10: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter10.next.accept(Visitor10)
-    }
+    iter10.next.accept(Visitor10)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def visitor10Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      iter10.next.accept(Visitor10)
-    }
+    iter10.next.accept(Visitor10)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch02: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch2.foo(iter2.next)
-    }
+    MatcherSwitch2.foo(iter2.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch02Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch2.foo(iter2.next)
-    }
+    MatcherSwitch2.foo(iter2.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch03: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch3.foo(iter3.next)
-    }
+    MatcherSwitch3.foo(iter3.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch03Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch3.foo(iter3.next)
-    }
+    MatcherSwitch3.foo(iter3.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch05: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch5.foo(iter5.next)
-    }
+    MatcherSwitch5.foo(iter5.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch05Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch5.foo(iter5.next)
-    }
+    MatcherSwitch5.foo(iter5.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcherSwitch10: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch10.foo(iter10.next)
-    }
+    MatcherSwitch10.foo(iter10.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcherSwitch10Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      MatcherSwitch10.foo(iter10.next)
-    }
+    MatcherSwitch10.foo(iter10.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher02: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher2.foo(iter2.next)
-    }
+    Matcher2.foo(iter2.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher02Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher2.foo(iter2.next)
-    }
+    Matcher2.foo(iter2.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher03: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher3.foo(iter3.next)
-    }
+    Matcher3.foo(iter3.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher03Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher3.foo(iter3.next)
-    }
+    Matcher3.foo(iter3.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher05: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher5.foo(iter5.next)
-    }
+    Matcher5.foo(iter5.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher05Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher5.foo(iter5.next)
-    }
+    Matcher5.foo(iter5.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1)
   def matcher10: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher10.foo(iter10.next)
-    }
+    Matcher10.foo(iter10.next)
   }
 
-  // @Benchmark
+  @Benchmark
   @BenchmarkMode(Array(Mode.Throughput))
   @Fork(value = 1, jvmArgsAppend = Array("-XX:+UnlockExperimentalVMOptions", "-XX:+UseJVMCICompiler"))
   def matcher10Graal: Unit = {
-    var i = 0
-    while (i < Iterations) {
-      i += 1
-      Matcher10.foo(iter10.next)
-    }
+    Matcher10.foo(iter10.next)
   }
 
 }
